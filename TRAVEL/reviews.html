@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews | RRJ Travels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Reviews page styles (merged with style.css compatibility) */
+        .reviews-header {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/cview.jpg') center/cover;
+            color: white;
+            margin-top: 56px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .reviews-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        .review-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .review-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .reviewer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .reviewer img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+        
+        .reviewer-info h4 {
+            color: #d76722;
+            font-size: 1.2rem;
+        }
+        
+        .reviewer-info p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .stars {
+            color: #d76722;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .review-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 4rem;
+        }
+        
+        .rating-select {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .rating-select i {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        
+        .rating-select i:hover {
+            color: #ffa07a; /* Soft orange from style.css */
+        }
+        
+        .rating-select i.active {
+            color: #d76722;
+        }
+        
+        @media (max-width: 768px) {
+            .reviews-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <div style="display: inline-flex; align-items: center; gap: 12px; font-family: 'Segoe UI', Arial, sans-serif;">
+                    <i class="fas fa-plane" style="color: #e63946; font-size: 34px; animation: smoothFloat 3s ease-in-out infinite;"></i>
+                    <span style="font-size: 32px; font-weight: 700; color: #1d3557; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Georgia', serif; text-shadow: 1px 1px 3px rgba(0,0,0,0.1);">
+                      RRJ Travels
+                    </span>
+                  </div>
+                  
+                  <style>
+                  @keyframes smoothFloat {
+                    0%, 100% { transform: translateY(0) rotate(5deg); }
+                    50% { transform: translateY(-8px) rotate(-2deg); }
+                  }
+                  
+                  .fa-plane {
+                    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+                  }
+                  </style>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinations.html">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="reviews.html">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="book-now.html">Book Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="reviews-header">
+        <div>
+            <h1>Customer Reviews</h1>
+            <p>Hear what our travelers have to say about their experiences with RRJ Travels.</p>
+        </div>
+    </section>
+    <main class="section">
+        <h2 class="section-title">Recent Traveler Experiences</h2>
+        <div class="review-cards">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <img src="images/SH.jpg" alt="Shihan H.">
+                        <div class="reviewer-info">
+                            <h4>Shihan Haroon</h4>
+                            <p>Paris Getaway | June 2023</p>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <blockquote>
+                    <p>"RRJ Travels made our Paris vacation absolutely enchanting! Every single aspect was perfectly arranged, from our charming boutique hotel to the exclusive guided tours. Their guides in Paris were very knowledgeable and showed us hidden gems we never would have found otherwise. The attention to detail was incredible - they even arranged an anniversary dinner with a view of the Eiffel Tower! We will be using RRJ Travels for all of our future vacations."</p>
+                </blockquote>
+            </div>
+    
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <img src="images/MI.jpg" alt="Muhammad I.">
+                        <div class="reviewer-info">
+                            <h4>Muhammad Ibrahim</h4>
+                            <p>Tokyo Adventure | April 2023</p>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <blockquote>
+                    <p>"The Tokyo tour was amazing! As first-time travelers to Japan, we were a little apprehensive, but RRJ Travels organized everything so that we could just relax and enjoy the trip. Our guide Yuki was excellent - she took us to see all the major attractions, but also to fantastic local eateries and off-the-beaten-path neighborhoods. The balance between scheduled activities and independent time was just right. I'm not giving 5 stars only because I wish the trip had lasted longer! Already plotting our next RRJ trip - perhaps Kyoto next time."</p>
+                </blockquote>
+            </div>
+    
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <img src="images/ia.jpg" alt="Irfan A.">
+                        <div class="reviewer-info">
+                            <h4>Irfan Ahmed</h4>
+                            <p>Bali Retreat | February 2023</p>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <blockquote>
+                    <p>"Our Bali trip was pure magic thanks to RRJ Travels. From the moment we arrived, everything was seamless. The villa they booked for us was breathtaking - private pool, jungle views, and just steps from the beach. The activities were perfectly curated - we did everything from sunrise volcano hikes to spa days to cooking classes. What impressed me most was how responsive the team was during our trip. When we mentioned we loved a particular restaurant, they arranged for us to go back and even got us a better table! This wasn't just a vacation - it was a transformative experience. Thank you, RRJ Travels!"</p>
+                </blockquote>
+            </div>
+    
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <img src="images/JO.jpg" alt="John O.">
+                        <div class="reviewer-info">
+                            <h4>John Omokore</h4>
+                            <p>Rome & Amalfi Coast | September 2022</p>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <blockquote>
+                    <p>"I've used many travel agencies over the years, but RRJ Travels stands head and shoulders above the rest. Our two-week trip through Italy was flawless. They secured tickets to attractions that were 'sold out' and got us into restaurants that are normally booked months in advance. The private boat tour along the Amalfi Coast was worth every penny - the captain knew all the best spots for swimming and photos. The attention to detail was remarkable - they even provided us with a mobile hotspot and detailed directions for all our transfers. This is how travel should be - effortless and extraordinary."</p>
+                </blockquote>
+            </div>
+        </div>
+    
+        <div class="review-form">
+            <h2 class="section-title">Share Your Experience</h2>
+            <form id="reviewForm">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="trip" class="form-label">Trip You Took</label>
+                    <input type="text" class="form-control" id="trip" name="trip" required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Rating</label>
+                    <div class="rating-select">
+                        <i class="fas fa-star" data-rating="1"></i>
+                        <i class="fas fa-star" data-rating="2"></i>
+                        <i class="fas fa-star" data-rating="3"></i>
+                        <i class="fas fa-star" data-rating="4"></i>
+                        <i class="fas fa-star" data-rating="5"></i>
+                        <input type="hidden" id="rating" name="rating" value="0">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="review" class="form-label">Your Review</label>
+                    <textarea class="form-control" id="review" name="review" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary submit-btn">Submit Review</button>
+            </form>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>RRJ Travels</h3>
+                <p>Making your travel dreams come true since 2010. We specialize in creating personalized travel experiences that you'll cherish forever.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="book-now.html">Book Now</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +44 74423-4567</li>
+                    <li><i class="fas fa-envelope"></i> info@rrjtravels.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Travel Street, Suite 100<br>New York, NY 10001</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2023 RRJ Travels. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    
+</body>
+</html>
