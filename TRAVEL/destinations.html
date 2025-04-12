@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations | RRJ Travels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Transparent navbar with animation - matches Book Now page */
+        .navbar-custom {
+            background-color: rgba(215, 103, 34, 0.3); /* Transparent dark-orange */
+            backdrop-filter: blur(8px); /* Glass effect */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #000000;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #d76722; /* Soft orange on hover */
+        }
+
+        .navbar-custom .nav-link.active {
+            font-weight: bold;
+            text-decoration: underline;
+            color: #d76722;
+        }
+
+        .navbar-custom .navbar-toggler {
+            border-color: rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease;
+        }
+
+        .navbar-custom .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Destinations page styles */
+        .destinations-header {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/dnation.jpg') center/cover;
+            color: white;
+            margin-top: 56px; /* Account for fixed navbar */
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .destinations-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        .destination-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .destination-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .destination-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .destination-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .destination-info {
+            padding: 1.5rem;
+        }
+        
+        .destination-info h3 {
+            color: #000000; /* Matches navbar hover color */
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .destination-info p {
+            color: #6c757d; /* Bootstrap secondary color */
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .destination-info a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .destination-info a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .destinations-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Keyframe animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <div style="display: inline-flex; align-items: center; gap: 12px; font-family: 'Segoe UI', Arial, sans-serif;">
+                    <i class="fas fa-plane" style="color: #e63946; font-size: 34px; animation: smoothFloat 3s ease-in-out infinite;"></i>
+                    <span style="font-size: 32px; font-weight: 700; color: #1d3557; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Georgia', serif; text-shadow: 1px 1px 3px rgba(0,0,0,0.1);">
+                      RRJ Travels
+                    </span>
+                  </div>
+                  
+                  <style>
+                  @keyframes smoothFloat {
+                    0%, 100% { transform: translateY(0) rotate(5deg); }
+                    50% { transform: translateY(-8px) rotate(-2deg); }
+                  }
+                  
+                  .fa-plane {
+                    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+                  }
+                  </style>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="destinations.html">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reviews.html">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="book-now.html">Book Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="destinations-header">
+        <div>
+            <h1>Explore Our Destinations</h1>
+            <p>Discover breathtaking places to visit with RRJ Travels.</p>
+        </div>
+    </section>
+    
+    <main class="section">
+        <h2 class="section-title">Featured Destinations</h2>
+        <div id="destinationsCarousel" class="carousel slide" data-bs-ride="false" data-bs-pause="hover">
+            <!-- Carousel Inner -->
+            <div class="carousel-inner">
+                <!-- Slide 1: Paris + Tokyo -->
+                <div class="carousel-item active">
+                    <div class="destination-slide">
+                        <div class="destination-card">
+                            <div class="image-wrapper">
+                                <img src="images/paris.jpg" alt="Paris">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="destination-info">
+                                <h3>Paris, France</h3>
+                                <p>Experience the romance and charm of the City of Light with iconic landmarks like the Eiffel Tower and world-class cuisine.</p>
+                                <a href="book-now.html" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                        <div class="destination-card">
+                            <div class="image-wrapper">
+                                <img src="images/tj.jpg" alt="Tokyo">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="destination-info">
+                                <h3>Tokyo, Japan</h3>
+                                <p>Immerse yourself in a vibrant blend of tradition and modernity, from ancient temples to bustling city streets.</p>
+                                <a href="book-now.html" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2: Santorini + Bali -->
+                <div class="carousel-item">
+                    <div class="destination-slide">
+                        <div class="destination-card">
+                            <div class="image-wrapper">
+                                <img src="images/SG.jpg" alt="Santorini">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="destination-info">
+                                <h3>Santorini, Greece</h3>
+                                <p>Relax in stunning whitewashed villages perched above the Aegean Sea, with unforgettable sunsets.</p>
+                                <a href="book-now.html" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                        <div class="destination-card">
+                            <div class="image-wrapper">
+                                <img src="images/IB.jpg" alt="Bali">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="destination-info">
+                                <h3>Bali, Indonesia</h3>
+                                <p>Discover lush jungles, pristine beaches, and vibrant culture in this tropical paradise.</p>
+                                <a href="book-now.html" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#destinationsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#destinationsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+    
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#destinationsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#destinationsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>RRJ Travels</h3>
+                <p>Making your travel dreams come true since 2010. We specialize in creating personalized travel experiences that you'll cherish forever.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="book-now.html">Book Now</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +44 74423-4567</li>
+                    <li><i class="fas fa-envelope"></i> info@rrjtravels.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Travel Street, Suite 100<br>New York, NY 10001</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2023 RRJ Travels. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-custom');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(215, 103, 34, 0.8)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(215, 103, 34, 0.3)';
+            }
+        });
+    </script>
+</body>
+</html>
